@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>{{ title }}</h1>
+      <label for="a">Operando A</label>
+      <input type="number" id="a" class="form-control" [(ngModel)]="operadorA">
+      <label for="b">Operando B</label>
+      <input type="number" id="b" class="form-control" [(ngModel)]="operadorB">
+      <button class="btn btn-primary" (click)="onSumar()">Sumar</button>
+      <p>Resultado: {{ resultado }}</p>
+    </div>
+  </div>
+
+</div>
