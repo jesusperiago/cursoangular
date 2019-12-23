@@ -1,6 +1,8 @@
 # MiPrimeraApp
 
-Primera instalación de angular
+Primera instalación de angular. 
+
+Probamos a crear componentes y ver como funciona una aplicación de angular
 
 ## Instalación de nodeJS y ejecutar comando
 npm install -g @angular/cli
