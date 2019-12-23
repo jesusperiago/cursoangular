@@ -11,8 +11,8 @@ export class FormularioComponent implements OnInit {
   nombreInput: string;
   apellidoInput: string;
   constructor() { }
-  onAgregarPersona(){
-    let persona1 = new Persona(this.nombreInput, this.apellidoInput);
+  onAgregarPersona(nombreInput:HTMLInputElement, apellidoInput:HTMLInputElement){
+    let persona1 = new Persona(nombreInput.value, apellidoInput.value);
     this.personaCreada.emit(persona1);
   }
   ngOnInit() {
