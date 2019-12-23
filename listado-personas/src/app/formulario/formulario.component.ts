@@ -15,7 +15,11 @@ export class FormularioComponent implements OnInit {
   @ViewChild('nombreInput', {static: false}) nombreInput: ElementRef;
   @ViewChild('apellidoInput', {static: false}) apellidoInput: ElementRef;
 
-  constructor(private logginService:LoggingService, private personasService:PersonasService) { }
+  constructor(private logginService:LoggingService, private personasService:PersonasService) {
+    this.personasService.saludar.subscribe(
+      (indice:number) => alert("El indice es: " + indice)
+    );
+  }
   onAgregarPersona(){
     let persona1 = new Persona(this.nombreInput.nativeElement.value , this.apellidoInput.nativeElement.value);
     //this.logginService.enviaMensajeAConsola("Enviamos persona:" + persona1.nombre + " " + persona1.apellido);
