@@ -1,6 +1,6 @@
 export class LoggingService {
 
-  enviaMensajeAConsola(mensaje:String){
+  enviaMensajeAConsola(mensaje: String) {
     console.log(mensaje);
   }
 }

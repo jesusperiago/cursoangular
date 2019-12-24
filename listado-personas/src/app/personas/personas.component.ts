@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Persona} from "../persona.model";
 import {LoggingService} from "../LoggingService.service";
 import {PersonasService} from "../personas.service";
@@ -20,12 +20,14 @@ export class PersonasComponent implements OnInit {
      this.personasService.agregarPersona(persona);
    }
  */
-  constructor(private logginService: LoggingService, private personasService: PersonasService, private router: Router){}
+  constructor(private logginService: LoggingService, private personasService: PersonasService, private router: Router) {
+  }
+
   ngOnInit(): void {
     this.personas = this.personasService.personas;
   }
 
-  agregar(){
+  agregar() {
     this.router.navigate(['personas/agregar']);
   }
 

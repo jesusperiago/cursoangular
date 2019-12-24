@@ -12,12 +12,13 @@ export class PersonaComponent implements OnInit {
   @Input() persona: Persona;
   @Input() indice: number;
 
-  constructor(private personasService: PersonasService) { }
+  constructor(private personasService: PersonasService) {
+  }
 
   ngOnInit() {
   }
 
-  emitirSaludo(){
+  emitirSaludo() {
     this.personasService.saludar.emit(this.indice);
   }
 }
