@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Persona} from "../../persona.model";
 import {LoggingService} from "../../LoggingService.service";
 import {PersonasService} from "../../personas.service";
@@ -13,23 +13,30 @@ export class FormularioComponent implements OnInit {
 
   nombreInput: string;
   apellidoInput: string;
-  indice:number;
+  indice: number;
+  modoEdicion: number;
 
-  constructor(private logginService:LoggingService, private personasService:PersonasService, private router:Router,
-              private route:ActivatedRoute) {}
+  constructor(private logginService: LoggingService, private personasService: PersonasService, private router: Router,
+              private route: ActivatedRoute) {
+  }
 
-  onGuardarPersona(){
+  onGuardarPersona() {
     let persona1 = new Persona(this.nombreInput, this.apellidoInput);
-    if(this.indice){
+    this.modoEdicion = +this.route.snapshot.queryParams['modoEdicion'];
+
+    if (this.modoEdicion != null && this.modoEdicion == 1) {
       this.personasService.modificarPersona(this.indice, persona1);
-    }else{
+      console.log(this.modoEdicion);
+    } else {
       this.personasService.agregarPersona(persona1);
     }
     this.router.navigate(['personas']);
   }
 
-  eliminarPersona(){
-    if(this.indice != null){
+  eliminarPersona() {
+    this.modoEdicion = +this.route.snapshot.queryParams['modoEdicion'];
+    if (this.modoEdicion != null && this.modoEdicion == 1) {
+      console.log(this.indice);
       this.personasService.eliminarPersona(this.indice);
     }
     this.router.navigate(['personas']);
@@ -37,7 +44,7 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit() {
     this.indice = this.route.snapshot.params['id'];
-    if(this.indice){
+    if (this.indice) {
       let persona: Persona = this.personasService.encontrarPersona(this.indice);
       this.nombreInput = persona.nombre;
       this.apellidoInput = persona.apellido;

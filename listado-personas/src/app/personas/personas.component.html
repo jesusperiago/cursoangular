@@ -1,5 +1,5 @@
 <button (click)="agregar()" class="btn btn-info">+</button>
-<app-formulario></app-formulario>
+
 <hr/>
 <app-persona *ngFor="let personaElemento of personas; let i = index"
              [persona]="personaElemento" [indice]="i"></app-persona>

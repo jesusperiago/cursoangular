@@ -8,7 +8,7 @@
     <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" [(ngModel)]="apellidoInput" required>
   </div>
   <div class="col">
-    <button type="submit" class="btn btn-primary" >Agregar</button>
+    <button type="submit" class="btn btn-primary" (click)="onGuardarPersona()">Agregar</button>
     <button type="submit" class="btn btn-danger" *ngIf="indice != null" (click)="eliminarPersona()">Eliminar</button>
   </div>
 </form>

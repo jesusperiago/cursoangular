@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-xs-12">
-    {{indice+1}}: {{persona.nombre}} {{persona.apellido}}
-    <a type="submit" class="btn btn-info" [routerLink]="['/personas', indice]">Editar</a>
+    {{indice + 1}}: {{persona.nombre}} {{persona.apellido}}
+    <a type="submit" class="btn btn-info" [routerLink]="['/personas', indice]"
+       [queryParams]="{modoEdicion: '1'}">
+      Editar
+    </a>
   </div>
 </div>
