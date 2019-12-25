@@ -4,11 +4,16 @@ import {PersonasComponent} from "./personas/personas.component";
 import {FormularioComponent} from "./personas/formulario/formulario.component";
 import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
+import {LoginGuardianService} from "./login/login-guardian.service";
 
 const routes: Routes = [
-    {path: '', component: PersonasComponent},
+    {
+      path: '', component: PersonasComponent,
+      canActivate: [LoginGuardianService]
+    },
     {
       path: 'personas', component: PersonasComponent,
+      canActivate: [LoginGuardianService],
       children:
         [
           {path: 'agregar', component: FormularioComponent},
