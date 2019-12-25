@@ -1,6 +1,16 @@
-<div class="container">
-  <div class="col-xs-12">
-    <h3>{{ titulo }}</h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h3>{{ titulo }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center" *ngIf="!isAutenticado()">
+      <a class="btn btn-info" routerLink="/login" >Login</a>
+    </div>
+    <div class="col text-center" *ngIf="isAutenticado()">
+      <a class="btn btn-danger" (click)="salir()">Salir</a>
+    </div>
   </div>
   <hr/>
   <router-outlet></router-outlet>

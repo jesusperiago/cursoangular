@@ -1,5 +1,12 @@
-<button (click)="agregar()" class="btn btn-info">+</button>
+
 <router-outlet></router-outlet>
 <hr/>
-<app-persona *ngFor="let personaElemento of personas; let i = index"
-             [persona]="personaElemento" [indice]="i"></app-persona>
+
+  <button (click)="agregar()" class="btn btn-info btn-lg btn-block">+</button>
+
+<hr/>
+<div class="list-group">
+  <app-persona *ngFor="let personaElemento of personas; let i = index"
+               [persona]="personaElemento" [indice]="i"></app-persona>
+</div>
+

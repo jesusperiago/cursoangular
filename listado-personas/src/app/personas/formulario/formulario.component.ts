@@ -23,10 +23,8 @@ export class FormularioComponent implements OnInit {
   onGuardarPersona() {
     let persona1 = new Persona(this.nombreInput, this.apellidoInput);
     this.modoEdicion = +this.route.snapshot.queryParams['modoEdicion'];
-
     if (this.modoEdicion != null && this.modoEdicion == 1) {
       this.personasService.modificarPersona(this.indice, persona1);
-      console.log(this.modoEdicion);
     } else {
       this.personasService.agregarPersona(persona1);
     }
@@ -36,7 +34,6 @@ export class FormularioComponent implements OnInit {
   eliminarPersona() {
     this.modoEdicion = +this.route.snapshot.queryParams['modoEdicion'];
     if (this.modoEdicion != null && this.modoEdicion == 1) {
-      console.log(this.indice);
       this.personasService.eliminarPersona(this.indice);
     }
     this.router.navigate(['personas']);
