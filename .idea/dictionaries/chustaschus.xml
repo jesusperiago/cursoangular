@@ -8,6 +8,7 @@
       <w>cabecera</w>
       <w>calculadora</w>
       <w>calcular</w>
+      <w>clientes</w>
       <w>coche</w>
       <w>creada</w>
       <w>descripcion</w>
@@ -30,6 +31,7 @@
       <w>loggin</w>
       <w>modificar</w>
       <w>modo</w>
+      <w>navbar</w>
       <w>nombre</w>
       <w>obterner</w>
       <w>operacion</w>
@@ -51,6 +53,7 @@
       <w>sumar</w>
       <w>tipo</w>
       <w>titulo</w>
+      <w>toggler</w>
       <w>venta</w>
     </words>
   </dictionary>
