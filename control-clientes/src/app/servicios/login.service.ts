@@ -25,4 +25,13 @@ export class LoginService {
   logout(){
     this.authService.auth.signOut();
   }
+
+  registrarse(email: string, password: string){
+    return new Promise((resolve, reject) => {
+      this.authService.auth.createUserWithEmailAndPassword(email, password)
+        .then(datos=> resolve(datos),
+          error => reject(error)
+        )
+    });
+  }
 }
