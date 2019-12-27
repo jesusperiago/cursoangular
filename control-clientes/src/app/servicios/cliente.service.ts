@@ -27,4 +27,36 @@ export class ClienteService {
     );
     return this.clientes;
   }
+  agregarCliente(cliente: ClienteModel){
+    this.clientesColeccion.add(cliente);
+
+  }
+
+  getCliente(id: string){
+    this.clienteDoc = this.db.doc<ClienteModel>(`clientes/${id}`);
+    this.cliente = this.clienteDoc.snapshotChanges().pipe(
+      map(
+        action => {
+          if(action.payload.exists === false){
+            return null;
+          }else{
+            const datos = action.payload.data() as ClienteModel;
+            datos.id = action.payload.id;
+            return datos;
+          }
+        }
+      )
+    );
+    return this.cliente;
+  }
+
+  modificarCliente(cliente: ClienteModel){
+    this.clienteDoc = this.db.doc(`clientes/${cliente.id}`);
+    this.clienteDoc.update(cliente);
+  }
+
+  eliminarCliente(cliente: ClienteModel){
+    this.clienteDoc = this.db.doc(`clientes/${cliente.id}`);
+    this.clienteDoc.delete();
+  }
 }
